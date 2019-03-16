@@ -1,14 +1,14 @@
 'use strict';
-var express = require('express');
-var app = express();
-var http = require('http');
-var path = require('path');
-var async = require('async');
-var fs = require('fs');
-var io = require('socket.io');
-var port = process.env.PORT || 443;
-var passport = require('passport');
-var server = http.createServer(app).listen(port);
-var socket = socketio.listen(server);
+const express = require('express');
+const app = express();
+const http = require('http');
+const path = require('path');
+const async = require('async');
+const fs = require('fs');
+const io = require('socket.io');
+const port = 443;
+const passport = require('passport');
+const server = http.createServer(app).listen(port);
+const socket = io.listen(server);
 
 app.use(express.static('public'));
