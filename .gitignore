@@ -341,9 +341,9 @@ MigrationBackup/
 # Visual Studio
 *.sln
 
-# Visual Studio Python
-*.pyproj
-*.pyproj.*
-
 # Visual Studio Node.js
 *.njsproj
+
+# Enviroment Variables
+*.env
+.env
