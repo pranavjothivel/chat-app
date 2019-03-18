@@ -7,12 +7,12 @@ const async = require('async');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const io = require('socket.io');
-const port = 443;
+const port = process.env.PORT;
 const passport = require('passport');
 const server = http.createServer(app).listen(port);
 const socket = io.listen(server);
 
-mongoose.connect(process.env.MONGODB_URL_ChatApp, { dbName: 'ChatAppDB' });
+mongoose.connect(process.env.MONGODB_URI, { dbName: 'ChatAppDB' });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
