@@ -12,7 +12,7 @@ const passport = require('passport');
 const server = http.createServer(app).listen(port);
 const socket = io.listen(server);
 
-mongoose.connect(process.env.MONGODB_URL_ChatApp);
+mongoose.connect(process.env.MONGODB_URL_ChatApp, { dbName: 'ChatAppDB' });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
