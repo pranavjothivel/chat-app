@@ -46,20 +46,22 @@
     </nav>
     <hr />
 
-    <div class="login-page">
-        <form class="" action="/login" method="post">
-            <img class="mb-4" src="/assets/brand/logo.svg" alt="Talktime Logo" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-            <label for="inputEmail" class="sr-only">Email address or Username</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address or Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
-            <!--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
-            <div class="oauth2-login">
-                <div id="google-oauth2-login"></div>
-            </div>
-        </form>
+    <div class="login-container">
+        <div class="form-group">
+            <form class="" action="/login" method="post">
+                <img class="mb-4" src="/assets/brand/logo.svg" alt="Talktime Logo" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                <label for="inputEmail" class="sr-only">Email address or Username</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address or Username" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
+                <!--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
+                    <div class="oauth2-login-alt">
+                        <div id="google-oauth2-login"></div>
+                    </div>
+            </form>
+        </div>
     </div>
 </body>
 

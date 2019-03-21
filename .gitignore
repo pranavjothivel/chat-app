@@ -347,3 +347,6 @@ MigrationBackup/
 # Enviroment Variables
 *.env
 .env
+
+# Workspace
+.vscode/
