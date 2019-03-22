@@ -350,3 +350,5 @@ MigrationBackup/
 
 # Workspace
 .vscode/
+
+*.code-workspace
