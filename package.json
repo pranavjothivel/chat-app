@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "async": "^2.6.2",
     "bcrypt": "^3.0.5",
     "dotenv": "^7.0.0",
