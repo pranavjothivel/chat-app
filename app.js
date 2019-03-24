@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 const io = require('socket.io');
 const port = process.env.PORT;
 const passport = require('passport');
+const sendgrid = require('@sendgrid/mail');
 const server = http.createServer(app).listen(port);
 const socket = io.listen(server);
 
