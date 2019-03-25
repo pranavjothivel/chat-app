@@ -23,6 +23,7 @@ db.once('open', function () {
     console.log("Connected to MongoDB");
 });
 
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
