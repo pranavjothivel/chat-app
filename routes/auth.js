@@ -1,5 +1,5 @@
 const express = require('express');
-const Router = express.Router;
+const router = express.Router;
 
 router.get('/login', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'login.ejs'));
