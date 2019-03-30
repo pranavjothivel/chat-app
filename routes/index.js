@@ -4,9 +4,10 @@ const auth = require('./auth');
 
 router.get('/', function (req, res) {
     res.render('index.ejs', {
-        title: "Talktime",
+        title: "Timetalk",
         metadata: null,
     });
 });
 
 module.exports = router;
+module.exports = auth;
