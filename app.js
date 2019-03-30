@@ -26,11 +26,4 @@ db.once('open', function () {
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
-})
-
-app.get('/login', function (req, res) {
-    res.sendFile(path.join(__dirname, 'views', 'login.html'));
-})
+app.use('/', routes);
