@@ -2,7 +2,7 @@
   "name": "chat-app",
   "version": "0.0.1",
   "description": "peer-to-peer or peer-to-group chat application. built using passport, socket.io, express, async and mongodb.",
-  "main": "server.js",
+  "main": "app.js",
   "author": {
     "name": "Pranav Jothivel"
   },
