@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<% include layouts/head %>
+<body>
+    <% include layouts/header %>
+    <div class="login-container" id="">
+        <div class="form-group" id="">
+            <form class="" action="/login" method="POST">
+                <label for="FirstName">First Name</label>
+                <input type="text" class="" id="FirstName">
+                <label for="LastName">Last Name</label>
+                <input type="text" class="" id="LastName">
+                <label for="Username">Username</label>
+                <input type="text" class="" id="Username">
+                <label for="Email">Email</label>
+                <input type="email" class="" id="Email">
+                <label for="ServiceAgreement">I agree to the <a href="/terms-of-service">Terms of Service</a> and to the<a href="/privacy-policy">Privacy Policy</a>.</label>
+                <input type="checkbox" class="" id="ServiceAgreement">
+
+                <input type="hidden" class="" id="token" value="<%= TOKEN %>">
+            </form>
+            <div class="" id="">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
