@@ -16,7 +16,7 @@ const server = http.createServer(app).listen(port);
 const socket = io.listen(server);
 const routes = require('./routes');
 
-mongoose.connect(process.env.MONGODB_URI, { dbName: 'Application', useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, {dbName: 'Application', useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
