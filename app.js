@@ -42,6 +42,17 @@ app.use('*', function (req, res, next) {
     }
 });
 
+
+// app.use('*', function(req, res, next) {
+    // if(req.connection.remotePort == 443) {
+        // next();
+    // }
+// });
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use('/', routes);
+
 mongoose.connect(process.env.MONGODB_URI, {dbName: 'Application', useNewUrlParser: true});
 
 const db = mongoose.connection;
@@ -49,8 +60,3 @@ db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
 db.once('open', function () {
     console.log("Connected to MongoDB");
 });
-
-
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use('/', routes);
