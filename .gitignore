@@ -7,3 +7,6 @@ node_modules/
 # Workspace
 .vscode/
 *.code-workspace
+
+# Other
+build/
