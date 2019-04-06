@@ -1,20 +1,46 @@
-'use strict';
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const http = require('http');
+
 const path = require('path');
 const async = require('async');
 const fs = require('fs');
+
+const SSL_CERT = fs.readFileSync(process.env.CERTIFICATE);
+const SSL_KEY = fs.readFileSync(process.env.CERTIFICATE_KEY);
+
+const SSL_CONFIG = {
+    key: SSL_KEY,
+    cert: SSL_CERT
+
+};
+
+const http = require('http');
+const https = require('https');
+
+const HTTP_PORT = process.env.HTTP_PORT;
+const HTTPS_PORT = process.env.HTTPS_PORT;
+
+const httpServer = http.createServer(app).listen(HTTP_PORT);
+const httpsServer = https.createServer(SSL_CONFIG, app).listen(HTTPS_PORT);
+
 const mongoose = require('mongoose');
+
 const io = require('socket.io');
-const port = process.env.PORT;
 const passport = require('passport');
 const sendgrid = require('@sendgrid/mail');
-const server = http.createServer(app).listen(port);
-const socket = io.listen(server);
+const socket = io.listen(httpsServer);
 const routes = require('./routes');
+
+app.use('*', function (req, res, next) {
+    if(req.secure){
+        next();
+    }
+    else {
+        res.redirect('https://' + req.headers.host + req.url);
+    }
+});
 
 mongoose.connect(process.env.MONGODB_URI, {dbName: 'Application', useNewUrlParser: true});
 
@@ -23,6 +49,7 @@ db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
 db.once('open', function () {
     console.log("Connected to MongoDB");
 });
+
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
