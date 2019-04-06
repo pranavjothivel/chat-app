@@ -1,6 +1,9 @@
 {
   "name": "chat-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3"
+  }
   "description": "peer-to-peer or peer-to-group chat application. built using passport, socket.io, express, async and mongodb.",
   "main": "app.js",
   "author": {
