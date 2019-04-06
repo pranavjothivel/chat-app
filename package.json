@@ -23,6 +23,7 @@
   },
   "scripts": {
     "start": "node app.js",
+    "build": "webpack",
     "dev": "nodemon app.js"
   },
   "repository": {
