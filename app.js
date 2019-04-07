@@ -1,5 +1,7 @@
 const dotenv = require('dotenv').config();
 
+const ENV = process.env.NODE_ENV;
+
 const express = require('express');
 const app = express();
 
@@ -16,21 +18,25 @@ const SSL_CONFIG = {
 
 };
 
-const http = require('http');
 const https = require('https');
+const http = require('http');
 
 const HTTP_PORT = process.env.HTTP_PORT;
 const HTTPS_PORT = process.env.HTTPS_PORT;
+const SOCKET_PORT = process.env.SOCKET_PORT;
 
 const httpServer = http.createServer(app).listen(HTTP_PORT);
-const httpsServer = https.createServer(SSL_CONFIG, app).listen(HTTPS_PORT);
+const httpsServer = null;
+if (ENV == 'development' || 'dev') {
+    const httpsServer = https.createServer(SSL_CONFIG, app).listen(HTTPS_PORT);    
+}
 
 const mongoose = require('mongoose');
 
 const io = require('socket.io');
 const passport = require('passport');
 const sendgrid = require('@sendgrid/mail');
-const socket = io.listen(httpsServer);
+const socket = io.listen(SOCKET_PORT);
 const routes = require('./routes');
 
 app.use('*', function (req, res, next) {
