@@ -15,8 +15,8 @@ const SSL_KEY = fs.readFileSync(process.env.CERTIFICATE_KEY);
 const SSL_CONFIG = {
     key: SSL_KEY,
     cert: SSL_CERT
-
 };
+
 
 const https = require('https');
 const http = require('http');
@@ -26,10 +26,7 @@ const HTTPS_PORT = process.env.HTTPS_PORT;
 const SOCKET_PORT = process.env.SOCKET_PORT;
 
 const httpServer = http.createServer(app).listen(HTTP_PORT);
-const httpsServer = null;
-if (ENV == 'development' || 'dev') {
-    const httpsServer = https.createServer(SSL_CONFIG, app).listen(HTTPS_PORT);    
-}
+// const httpsServer = https.createServer(SSL_CONFIG, app).listen(HTTPS_PORT);
 
 const mongoose = require('mongoose');
 
@@ -42,6 +39,9 @@ const routes = require('./routes');
 app.use('*', function (req, res, next) {
     if(req.secure){
         next();
+    }
+    else if(ENV == 'production' && process.env.PRODUCTION_ENV == 'nginx') {
+        res.redirect('http://' + req.headers.host + req.url);
     }
     else {
         res.redirect('https://' + req.headers.host + req.url);
