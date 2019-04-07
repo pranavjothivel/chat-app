@@ -42,13 +42,6 @@ app.use('*', function (req, res, next) {
     }
 });
 
-
-// app.use('*', function(req, res, next) {
-    // if(req.connection.remotePort == 443) {
-        // next();
-    // }
-// });
-
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use('/', routes);
