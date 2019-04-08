@@ -8,7 +8,6 @@ router.get('/login', function (req, res) {
     });
 });
 router.post('/login', function (req, res, next) {
-
 })
 
 router.get('/signup', function (req, res) {
@@ -19,7 +18,6 @@ router.get('/signup', function (req, res) {
     });
 });
 router.post('/signup', function (req, res, next) {
-    
 })
 
 module.exports = router;
