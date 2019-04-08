@@ -1,5 +1,5 @@
 {
-  "name": "chat-app",
+  "name": "timetalk-web",
   "version": "1.0.0",
   "engines": {
     "node": "10.15.3"
@@ -26,11 +26,8 @@
     "socket.io": "^2.2.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/pranavjothivel/chat-app.git"
+    "start": "node production.js",
+    "dev": "nodemon scripts/dev.js",
+    "dev-ssl": "nodemon scripts/dev-ssl.js"
   }
 }
