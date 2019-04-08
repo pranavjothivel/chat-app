@@ -1,5 +1,3 @@
-const dotenv = require('dotenv').config();
-
 const ENV = process.env.NODE_ENV;
 
 const express = require('express');
@@ -9,14 +7,6 @@ const path = require('path');
 const async = require('async');
 const fs = require('fs');
 
-const http = require('http');
-const https = require('https');
-
-const HTTP_PORT = process.env.HTTP_PORT;
-const httpServer = http.createServer(app).listen(HTTP_PORT);
-
-Enable_SSL_Local();
-
 const mongoose = require('mongoose');
 
 const SOCKET_PORT = process.env.SOCKET_PORT;
@@ -25,12 +15,6 @@ const passport = require('passport');
 const sendgrid = require('@sendgrid/mail');
 const socket = io.listen(SOCKET_PORT);
 const routes = require('./routes');
-
-function Enable_SSL_Local() {
-    if(ENV == 'dev' || 'development' && process.env.PRODUCTION_ENV == 'localhost'){
-        require('./scripts/ENABLE_SSL_LOCAL');
-    }
-}
 
 app.use('*', function (req, res, next) {
     if(req.secure){
@@ -55,3 +39,5 @@ db.on('error', console.error.bind(console, 'Error connecting to MongoDB'));
 db.once('open', function () {
     console.log("Connected to MongoDB");
 });
+
+module.exports = app;
