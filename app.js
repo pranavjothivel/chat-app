@@ -5,6 +5,11 @@ const ENV = process.env.NODE_ENV;
 const express = require('express');
 const app = module.exports = express();
 
+const http = require('http');
+
+const HTTP_PORT = process.env.HTTP_PORT || 80;
+const httpServer = http.createServer(app).listen(HTTP_PORT);
+
 const path = require('path');
 const async = require('async');
 const fs = require('fs');
